@@ -6,14 +6,16 @@ let students = [
     {id:7, name:"Ngozi", grade: [77, 80, 50] }
 ]
 
-let dataAverageScore = calculateAverageGrades(students);
-
+//Logic I
+//function to find the Student Average grade 
 function studentAverageGrades(grade){
     let studentTotalScore = grade.reduce((sum, grade) => sum + grade, 0);
     return studentTotalScore / grade.length;
 
 }
 
+
+//function to return a new array of individual Student Average grade 
 function calculateAverageGrades(students){
     return students.map(student => {
         let studentResult = studentAverageGrades(student.grade);
@@ -26,8 +28,17 @@ function calculateAverageGrades(students){
         };
     });
 }
+
+
+//calling the function
+let dataAverageScore = calculateAverageGrades(students);
 console.log(dataAverageScore);
 
+
+
+//Logic II
+
+//function to find the Top Student in terms of grade
 function findTopStudent(students){
     let averagehighestScore = 0;
     let firstPlaceStudent;
@@ -47,12 +58,17 @@ function findTopStudent(students){
 
 }
 
+
+//calling the function
 let highestGradeStudent = findTopStudent(students);
 if(highestGradeStudent){
     console.log(`first place:${highestGradeStudent.id} (name:${highestGradeStudent.name})`);
 }else{
     console.log('No Record Found.');
 }
+
+
+//logicIII
 
 //function to sort student by average grade in descending order
 function sortStudentsByGrade(students){
