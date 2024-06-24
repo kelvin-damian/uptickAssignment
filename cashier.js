@@ -53,3 +53,19 @@ if(highestGradeStudent){
 }else{
     console.log('No Record Found.');
 }
+
+//function to sort student by average grade in descending order
+function sortStudentsByGrade(students){
+    return students.slice().sort((a, b) => {
+        let aAverage = studentAverageGrades(a.grade);
+        let bAverage = studentAverageGrades(b.grade);
+
+        return bAverage - aAverage;
+
+
+    });
+}
+
+//calling the function
+let sortedResult = sortStudentsByGrade(students);
+console.log(sortedResult);
