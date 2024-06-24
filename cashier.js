@@ -28,3 +28,28 @@ function calculateAverageGrades(students){
 }
 console.log(dataAverageScore);
 
+function findTopStudent(students){
+    let averagehighestScore = 0;
+    let firstPlaceStudent;
+
+    for(let student of students){
+        let studentAverageGrade =  student.grade.reduce((sum, grade) => sum + grade, 0) / student.grade.length;
+        
+        if(studentAverageGrade > averagehighestScore){
+            averagehighestScore = studentAverageGrade;
+
+            firstPlaceStudent = student;
+
+        }
+    }
+
+    return firstPlaceStudent;
+
+}
+
+let highestGradeStudent = findTopStudent(students);
+if(highestGradeStudent){
+    console.log(`first place:${highestGradeStudent.id} (name:${highestGradeStudent.name})`);
+}else{
+    console.log('No Record Found.');
+}
